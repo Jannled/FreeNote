@@ -34,3 +34,6 @@
 # Build folders in general
 /build
 /bin
+
+# Glade Backup
+*.glade~
