@@ -2,9 +2,16 @@
 
 #include <gtk/gtk.h>
 
+//Different Newline for Windows
+#if defined(_WIN32)
+#define LINEBREAK "\r\n"
+#else
+#define LINEBREAK "\n"
+#endif
+
 int main(int argc, char *argv[])
 {
-	printf("Starting FreeNote with %d parameters.\n", argc);
+	printf("Starting FreeNote with %d parameters."LINEBREAK, argc);
 
     GtkBuilder      *builder; 
     GtkWidget       *window;
@@ -25,8 +32,9 @@ int main(int argc, char *argv[])
 }
 
 // called when window is closed
+G_MODULE_EXPORT 
 void on_MainWindow_destroy()
 {
-	printf("User requested to exit program.\n");
+	printf("User requested to exit program."LINEBREAK);
     gtk_main_quit();
 }
